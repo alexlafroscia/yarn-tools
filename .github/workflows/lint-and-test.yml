@@ -1,0 +1,14 @@
+name: Lint and Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn install --non-interactive
+    - run: yarn lint:hbs
+    - run: yarn lint:js
+    - run: yarn test
+
