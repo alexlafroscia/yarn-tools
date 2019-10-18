@@ -7,7 +7,14 @@
   />
 
   <div class="text-white bg-blue-700 w-3/6 p-4 overflow-y-scroll">
-    {{#if this.parsedValue}}
+    {{#if this.parsingError}}
+      <section class="bg-white text-red-500 p-2 rounded-lg shadow-lg">
+        <header class="text-lg font-bold">
+          <h2>Parsing Error</h2>
+        </header>
+        {{this.parsingError.message}}
+      </section>
+    {{else if this.parsedValue}}
       {{#step-manager as |w|}}
         <div class="flex border-b-2 border-blue-600 mb-2">
           {{#each w.steps as |step|}}
