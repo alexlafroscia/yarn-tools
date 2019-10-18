@@ -1,0 +1,26 @@
+<input
+  class="text-black px-2 py-1 mb-1 rounded-sm"
+  placeholder="Filter by Name"
+  value={{this.filter}}
+  {{on "input" this.updateInput}}
+>
+
+{{#vertical-collection this.entries estimateHeight=24 as |entry|}}
+  {{#let (object-at 0 entry) (object-at 1 entry) as |key value|}}
+    <details class="text-white" data-test-details={{key}}>
+      <summary data-test-dependency-identifier>{{key}}</summary>
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-test-version>{{value.version}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
+  {{/let}}
+{{/vertical-collection}}

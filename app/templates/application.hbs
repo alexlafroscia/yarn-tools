@@ -1,1 +1,39 @@
-{{outlet}}
+<div class="flex max-h-screen min-h-screen">
+  <textarea
+    class="text-sm w-3/6 m-2 p-2"
+    placeholder="Paste yarn.lock contents"
+    {{on "change" (perform this.updateLockfile)}}
+    {{on "paste" (perform this.updateLockfile)}}
+  />
+
+  <div class="text-white bg-blue-700 w-3/6 p-4 overflow-y-scroll">
+    {{#if this.parsedValue}}
+      {{#step-manager as |w|}}
+        <div class="flex border-b-2 border-blue-600 mb-2">
+          {{#each w.steps as |step|}}
+            <button
+              class="px-2 py-1 rounded-t-sm {{if step.isActive "bg-blue-600"}}"
+              {{on "click" (fn w.transition-to step.name)}}
+            >
+              {{step.name}}
+            </button>
+          {{/each}}
+        </div>
+
+        {{#w.step name="List"}}
+          <LockfileTreeStructure
+            @lockfile={{this.parsedValue}}
+          />
+        {{/w.step}}
+
+        {{#w.step name="Another"}}
+          Something Else
+        {{/w.step}}
+      {{/step-manager}}
+    {{else}}
+      <p class="text-white">
+        No Lockfile
+      </p>
+    {{/if}}
+  </div>
+</div>
