@@ -7,36 +7,25 @@
   />
 
   <div class="text-white bg-blue-700 w-3/6 p-4 overflow-y-scroll">
-    {{#if this.parsingError}}
+    {{#if this.lockfile.parsingError}}
       <section class="bg-white text-red-500 p-2 rounded-lg shadow-lg">
         <header class="text-lg font-bold">
           <h2>Parsing Error</h2>
         </header>
-        {{this.parsingError.message}}
+        {{this.lockfile.parsingError.message}}
       </section>
-    {{else if this.parsedValue}}
-      {{#step-manager as |w|}}
-        <div class="flex border-b-2 border-blue-600 mb-2">
-          {{#each w.steps as |step|}}
-            <button
-              class="px-3 py-1 rounded-t-sm {{if step.isActive "bg-blue-600"}}"
-              {{on "click" (fn w.transition-to step.name)}}
-            >
-              {{step.name}}
-            </button>
-          {{/each}}
-        </div>
+    {{else if this.lockfile.parsedValue}}
+      <div class="flex border-b-2 border-blue-600 mb-2">
+        <LinkTo class="tab" @route="index">
+          Installed
+        </LinkTo>
 
-        {{#w.step name="List"}}
-          <LockfileTreeStructure
-            @lockfile={{this.parsedValue}}
-          />
-        {{/w.step}}
+        <LinkTo class="tab" @route="all">
+          All
+        </LinkTo>
+      </div>
 
-        {{#w.step name="Another"}}
-          Something Else
-        {{/w.step}}
-      {{/step-manager}}
+      {{outlet}}
     {{else}}
       <p class="flex justify-center items-center h-full">
         No Lockfile

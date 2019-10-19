@@ -1,4 +1,5 @@
 import Service from "@ember/service";
+import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency-decorators";
 
 const HEADER =
@@ -9,6 +10,9 @@ function normalizeLockfile(raw) {
 }
 
 export default class LockfileService extends Service {
+  @reads("parse.last.value") parsedValue;
+  @reads("parse.last.error") parsingError;
+
   @task *parse(raw) {
     const { parse: parseLockfile } = yield import("@yarnpkg/lockfile");
     const normalized = normalizeLockfile(raw);

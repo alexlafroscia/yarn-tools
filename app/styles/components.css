@@ -1,0 +1,7 @@
+.tab {
+  @apply px-3 py-1 rounded-t-sm;
+}
+
+.tab.active {
+  @apply bg-blue-600;
+}
