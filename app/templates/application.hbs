@@ -1,12 +1,12 @@
-<div class="flex max-h-screen min-h-screen">
+<div class="flex max-h-screen min-h-screen dark:bg-gray-700 dark:text-white">
   <textarea
-    class="text-sm w-3/6 m-2 p-2 resize-none"
+    class="text-sm w-3/6 m-2 p-2 resize-none dark:bg-gray-700"
     placeholder="Paste yarn.lock contents"
     {{on "change" (perform this.updateLockfile)}}
     {{on "paste" (perform this.updateLockfile)}}
   />
 
-  <div class="text-white bg-blue-700 w-3/6 p-4 overflow-y-scroll">
+  <div class="text-white bg-blue-700 dark:bg-blue-800 w-3/6 p-4 overflow-y-scroll">
     {{#if this.lockfile.parsingError}}
       <section class="bg-white text-red-500 p-2 rounded-lg shadow-lg">
         <header class="text-lg font-bold">
