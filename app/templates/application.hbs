@@ -1,6 +1,6 @@
 <div class="flex max-h-screen min-h-screen">
   <textarea
-    class="text-sm w-3/6 m-2 p-2"
+    class="text-sm w-3/6 m-2 p-2 resize-none"
     placeholder="Paste yarn.lock contents"
     {{on "change" (perform this.updateLockfile)}}
     {{on "paste" (perform this.updateLockfile)}}
