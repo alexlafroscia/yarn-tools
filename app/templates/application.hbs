@@ -19,7 +19,7 @@
         <div class="flex border-b-2 border-blue-600 mb-2">
           {{#each w.steps as |step|}}
             <button
-              class="px-2 py-1 rounded-t-sm {{if step.isActive "bg-blue-600"}}"
+              class="px-3 py-1 rounded-t-sm {{if step.isActive "bg-blue-600"}}"
               {{on "click" (fn w.transition-to step.name)}}
             >
               {{step.name}}
