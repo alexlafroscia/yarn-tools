@@ -1,12 +1,12 @@
-import { module, test } from 'qunit';
-import { setupTest } from 'ember-qunit';
+import { module, test } from "qunit";
+import { setupTest } from "ember-qunit";
 
-module('Unit | Controller | installed', function(hooks) {
+module("Unit | Controller | installed", function(hooks) {
   setupTest(hooks);
 
   // Replace this with your real tests.
-  test('it exists', function(assert) {
-    let controller = this.owner.lookup('controller:installed');
+  test("it exists", function(assert) {
+    let controller = this.owner.lookup("controller:installed");
     assert.ok(controller);
   });
 });
