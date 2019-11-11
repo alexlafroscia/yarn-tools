@@ -54,6 +54,8 @@
     "eslint-plugin-ember": "^7.5.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
     "loader.js": "^4.7.0",
     "postcss-import": "^12.0.1",
     "prettier": "^1.19.1",
@@ -62,5 +64,17 @@
   },
   "engines": {
     "node": "8.* || >= 10.*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.hbs": "ember-template-lint",
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
