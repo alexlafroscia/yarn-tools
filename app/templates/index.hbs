@@ -1,29 +1,14 @@
-{{#vertical-collection (object-entries this.installedDependencies) estimateHeight=24 as |entry|}}
-  {{#let (object-at 0 entry) (object-at 1 entry) as |key def|}}
-    <details class="text-white" data-test-details={{key}}>
-      <summary data-test-dependency-identifier>{{key}}</summary>
-      <table class="table-auto mb-2">
-        <thead>
-          <tr>
-            <th class="px-4 py-2">Version</th>
-            <th class="px-4 py-2">Packages</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="border px-4 py-2" data-test-version>
-              {{def.version}}
-            </td>
-            <td class="border px-4 py-2" data-test-packages>
-              <ul>
-                {{#each def.packages as |package|}}
-                  <li>{{package}}</li>
-                {{/each}}
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </details>
-  {{/let}}
-{{/vertical-collection}}
+<table class="table-auto mb-2">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">Installed Dependencies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border px-4 py-2" data-test-version>
+        {{this.dependencyCount}}
+      </td>
+    </tr>
+  </tbody>
+</table>

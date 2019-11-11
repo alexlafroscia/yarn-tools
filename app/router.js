@@ -8,6 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route("all");
+  this.route('installed');
 });
 
 export default Router;

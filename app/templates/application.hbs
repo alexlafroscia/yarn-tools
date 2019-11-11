@@ -17,6 +17,10 @@
     {{else if this.lockfile.parsedValue}}
       <div class="flex border-b-2 border-blue-600 mb-2">
         <LinkTo class="tab" @route="index">
+          Info
+        </LinkTo>
+
+        <LinkTo class="tab" @route="installed">
           Installed
         </LinkTo>
 
