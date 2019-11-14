@@ -9,6 +9,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:ember/recommended",
+    "plugin:ember/octane",
     "plugin:prettier/recommended"
   ],
   env: {

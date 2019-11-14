@@ -1,11 +1,11 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency-decorators";
 
 export default class ApplicationController extends Controller {
   @service lockfile;
 
-  @task *updateLockfile(event) {
+  @action updateLockfile(event) {
     let source;
 
     if (event instanceof ClipboardEvent) {
@@ -14,6 +14,10 @@ export default class ApplicationController extends Controller {
       source = event.target.value;
     }
 
-    yield this.lockfile.parse.perform(source);
+    try {
+      this.lockfile.parse.perform(source);
+    } catch (e) {
+      // Error shown in UI
+    }
   }
 }

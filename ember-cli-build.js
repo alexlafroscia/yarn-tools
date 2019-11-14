@@ -28,7 +28,11 @@ module.exports = function(defaults) {
     },
 
     babel: {
-      plugins: [require.resolve("ember-auto-import/babel-plugin")]
+      plugins: [
+        "@babel/plugin-proposal-optional-chaining",
+        "@babel/plugin-proposal-nullish-coalescing-operator",
+        require.resolve("ember-auto-import/babel-plugin")
+      ]
     },
 
     fathom: {

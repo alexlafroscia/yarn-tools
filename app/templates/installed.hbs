@@ -1,4 +1,4 @@
-{{#vertical-collection (object-entries this.installedDependencies) estimateHeight=24 as |entry|}}
+<VerticalCollection @items={{object-entries this.installedDependencies}} @estimateHeight={{24}} as |entry|>
   {{#let (object-at 0 entry) (object-at 1 entry) as |key def|}}
     <details class="text-white" data-test-details={{key}}>
       <summary data-test-dependency-identifier>{{key}}</summary>
@@ -26,4 +26,4 @@
       </table>
     </details>
   {{/let}}
-{{/vertical-collection}}
+</VerticalCollection>

@@ -5,7 +5,7 @@
   {{on "input" this.updateInput}}
 >
 
-{{#vertical-collection this.entries estimateHeight=24 as |entry|}}
+<VerticalCollection @items={{this.entries}} @estimateHeight={{24}} as |entry|>
   {{#let (object-at 0 entry) (object-at 1 entry) as |key value|}}
     <details class="text-white" data-test-details={{key}}>
       <summary data-test-dependency-identifier>{{key}}</summary>
@@ -25,4 +25,4 @@
       </table>
     </details>
   {{/let}}
-{{/vertical-collection}}
+</VerticalCollection>

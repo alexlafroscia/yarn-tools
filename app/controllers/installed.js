@@ -1,12 +1,10 @@
 import Controller from "@ember/controller";
-import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { assembleVersion, parseVersion } from "../utils/version-utils";
 
 export default class InstalledController extends Controller {
   @service lockfile;
 
-  @computed("lockfile.parsedValue")
   get installedDependencies() {
     return Object.entries(this.lockfile.parsedValue).reduce(
       (acc, [key, value]) => {
