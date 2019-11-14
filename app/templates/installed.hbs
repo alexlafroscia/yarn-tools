@@ -1,3 +1,10 @@
+<input
+  class="text-black px-2 py-1 mb-1 rounded-sm w-full"
+  placeholder="Filter by Name"
+  value={{this.filter}}
+  {{on "input" this.updateFilter}}
+>
+
 <VerticalCollection @items={{object-entries this.installedDependencies}} @estimateHeight={{24}} as |entry|>
   {{#let (object-at 0 entry) (object-at 1 entry) as |key def|}}
     <details class="text-white" data-test-details={{key}}>
