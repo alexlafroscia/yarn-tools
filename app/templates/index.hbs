@@ -1,16 +1,14 @@
 <table class="table-auto mb-2">
-  <thead>
-    <tr>
-      <th class="px-4 py-2">Total Dependencies</th>
-      <th class="px-4 py-2">Installed Dependencies</th>
-    </tr>
-  </thead>
   <tbody>
-    <tr>
-      <td class="border px-4 py-2" data-test-version>
+    <tr class="border-b border-blue-600">
+      <th class="px-4 py-2 text-left">Total Dependencies</th>
+      <td class="px-4 py-2" data-test-version>
         {{this.totalDependencyCount}}
       </td>
-      <td class="border px-4 py-2" data-test-version>
+    </tr>
+    <tr class="border-b border-blue-600">
+      <th class="px-4 py-2 text-left">Unique Dependencies</th>
+      <td class="px-4 py-2" data-test-version>
         {{this.installedDependencyCount}}
       </td>
     </tr>
