@@ -31,6 +31,11 @@ module.exports = function(defaults) {
       plugins: [require.resolve("ember-auto-import/babel-plugin")]
     },
 
+    fathom: {
+      isEnabled: isProduction,
+      siteId: "GMENSDWN"
+    },
+
     postcssOptions: {
       compile: {
         plugins: [
